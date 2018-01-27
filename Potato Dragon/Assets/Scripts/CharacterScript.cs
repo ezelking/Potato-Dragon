@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
 public class CharacterScript : MonoBehaviour {
-    enum Direction { Up, Down, Right, Left }
-    Direction dir;
+    public enum Direction { Up, Down, Right, Left }
+    public Direction dir;
     public bool target = false;
 
     public int flightNumber = 0;
@@ -74,39 +74,56 @@ public class CharacterScript : MonoBehaviour {
                 if (transform.position.x <= targetPosition.x)
                     if (transform.position.y < targetPosition.y)
                     {
-                        if (GetComponentInParent<CharactersScript>().LegalPosition(transform.position + new Vector3(0,0.5f, 0)))
+                        if (GetComponentInParent<CharactersScript>().LegalPosition(transform.position + new Vector3(0, 0.5f, 0)))
+                        {
                             dir = Direction.Up;
-                    }
+                            ChangeSprite();
+                        }
+                        }
                     else
                     {
-                        if (GetComponentInParent<CharactersScript>().LegalPosition(transform.position + new Vector3(0,-0.5f, 0)))
+                        if (GetComponentInParent<CharactersScript>().LegalPosition(transform.position + new Vector3(0, -0.5f, 0)))
+                        {
                             dir = Direction.Down;
+                            ChangeSprite();
+                        }
                     }                    
                 break;
             case Direction.Right:
                 if (transform.position.x >= targetPosition.x)
                     if (transform.position.y < targetPosition.y)
                     {
-                        if (GetComponentInParent<CharactersScript>().LegalPosition(transform.position + new Vector3(0,0.5f, 0)))
+                        if (GetComponentInParent<CharactersScript>().LegalPosition(transform.position + new Vector3(0, 0.5f, 0)))
+                        {
                             dir = Direction.Up;
+                            ChangeSprite();
+                        }
                     }
                     else
                     {
-                        if (GetComponentInParent<CharactersScript>().LegalPosition(transform.position + new Vector3(0,-0.5f, 0)))
+                        if (GetComponentInParent<CharactersScript>().LegalPosition(transform.position + new Vector3(0, -0.5f, 0)))
+                        {
                             dir = Direction.Down;
+                            ChangeSprite();
+                        }
                     }
                 break;
             case Direction.Up:
-                if (transform.position.y >3.1)
+                if (transform.position.y > 3.1)
                     if (transform.position.x < targetPosition.x)
                     {
-                        if (GetComponentInParent<CharactersScript>().LegalPosition(transform.position + new Vector3(0.5f, 0, 0)))
+                        if (GetComponentInParent<CharactersScript>().LegalPosition(transform.position + new Vector3(0.5f, 0, 0))) { 
                             dir = Direction.Right;
+                        ChangeSprite();
+                    }
                     }
                     else
                     {
                         if (GetComponentInParent<CharactersScript>().LegalPosition(transform.position + new Vector3(-0.5f, 0, 0)))
+                        {
                             dir = Direction.Left;
+                            ChangeSprite();
+                        }
                     }
 
                 break;
@@ -115,12 +132,18 @@ public class CharacterScript : MonoBehaviour {
                     if (transform.position.x < targetPosition.x)
                     {
                         if (GetComponentInParent<CharactersScript>().LegalPosition(transform.position + new Vector3(0.5f, 0, 0)))
+                        {
                             dir = Direction.Right;
+                            ChangeSprite();
+                        }
                     }
                     else
                     {
                         if (GetComponentInParent<CharactersScript>().LegalPosition(transform.position + new Vector3(-0.5f, 0, 0)))
+                        {
                             dir = Direction.Left;
+                            ChangeSprite();
+                        }
                     }
 
                 break;
@@ -136,17 +159,31 @@ public class CharacterScript : MonoBehaviour {
             if (targetPosition.x - transform.position.x > 0.01)
             {
                 dir = Direction.Right;
+                ChangeSprite();
+
             }
             else if (targetPosition.x - transform.position.x < 0.01)
             {
                 dir = Direction.Left;
+                ChangeSprite();
             }
             else
             {
                 if (targetPosition.y - transform.position.y < 0.01)
+                {
                     dir = Direction.Up;
+                    ChangeSprite();
+                }
                 else if (targetPosition.y - transform.position.y > 0.01)
+                {
                     dir = Direction.Down;
+                    ChangeSprite();
+                }
             }
+    }
+
+    void ChangeSprite()
+    {
+        GetComponent<SpriteRenderer>().sprite = GetComponentInParent<CharactersScript>().GetSprite(this);
     }
 }
