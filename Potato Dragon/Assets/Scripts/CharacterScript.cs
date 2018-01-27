@@ -29,7 +29,7 @@ public class CharacterScript : MonoBehaviour {
 
     void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && GetComponentInParent<TextBehaviourScript>().textBox.activeSelf == false)
                 GetComponentInParent<TextBehaviourScript>().ShowText(this);
     }
 }
