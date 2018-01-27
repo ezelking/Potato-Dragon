@@ -24,7 +24,6 @@ public class TextBehaviourScript : MonoBehaviour
 	private void Start()
 	{
 		TextTimer = 0f;
-		//Init();
 	}
 
 	public void ShowText(CharacterScript target)

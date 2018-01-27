@@ -16,7 +16,7 @@ public class CharacterScript : MonoBehaviour {
 	void Update () {
         if (GetComponentInParent<FlightsScript>().GetDepartureTime(flightNumber) <= 0)
             boarding = true;
-        if (suspected && !target)
+        if (suspected && !target || boarding)
             Debug.Log("You Lose");
         else if (target && suspected)
             Debug.Log("You Win");
