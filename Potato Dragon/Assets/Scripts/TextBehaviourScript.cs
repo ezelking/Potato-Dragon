@@ -12,10 +12,11 @@ public class TextBehaviourScript : MonoBehaviour
     public List<TextAsset> normalTextFiles;
 
     public string[] textLines;
-	public int currentLine;
 	public int endAtLine;
 
 	private float TextTimer;
+
+    CharacterScript selectedPerson;
 
 	public PlayerController player;
 	
@@ -23,56 +24,64 @@ public class TextBehaviourScript : MonoBehaviour
 	private void Start()
 	{
 		TextTimer = 0f;
-		//Init();
 	}
 
-	public void ShowText(bool target)
-	{
-        TextAsset textFile;
-        if (target)
-            textFile = suspiciousTextFiles[Random.Range(0, suspiciousTextFiles.Count)];
-        else
-            textFile = normalTextFiles[Random.Range(0, normalTextFiles.Count)];
+	public void ShowText(CharacterScript target)
+    {
+        selectedPerson = target;
+        
+        if (selectedPerson.script == null)
+            if (selectedPerson.target)
+                selectedPerson.script = suspiciousTextFiles[Random.Range(0, suspiciousTextFiles.Count)];
+            else
+                selectedPerson.script = normalTextFiles[Random.Range(0, normalTextFiles.Count)];
 
         textBox.SetActive(true);
-		
-		if (textFile != null)
-		{
-			textLines = (textFile.text.Split('\n'));
-		}
 
-		if (endAtLine == 0)
-		{
-			endAtLine = textLines.Length - 1;
-		}
-		
-		NextLine();
-	}
+        if (selectedPerson.script != null)
+        {
+            textLines = (selectedPerson.script.text.Split('\n'));
+        }
 
-	private void Update()
+        if (endAtLine == 0)
+        {
+            endAtLine = textLines.Length - 1;
+        }
+
+        NextLine();
+
+
+    }
+
+    private void Update()
 	{
+        if (Input.GetKeyDown(KeyCode.Z))
+            Reset();
 
-
-		//if (Input.GetMouseButtonDown(0) && !textBox.activeSelf && currentLine < endAtLine && textFile != null)
-		//{
-			//Init();
-		//}
+        if (Input.GetKey(KeyCode.X))
+            selectedPerson.suspected = true;
 
 		TextTimer -= Time.deltaTime;
 	}
 
 	private void NextLine()
 	{
-		if (currentLine <= endAtLine)
+		if (selectedPerson.currentline <= endAtLine)
 		{
-			TextTimer = textLines[currentLine].Length * 0.25f + 1;
+			TextTimer = 5;//textLines[selectedPerson.currentline].Length * 0.25f + 1;
 			Invoke("NextLine", TextTimer);
-            theText.text = textLines[currentLine];
-            currentLine++;
+            theText.text = textLines[selectedPerson.currentline];
+            selectedPerson.currentline++;
         }
 		else
 		{
 			textBox.SetActive(false);
         }
+    }
+
+    private void Reset() {
+        textLines = null;
+        textBox.SetActive(false);
+        CancelInvoke("NextLine");
     }
 }
