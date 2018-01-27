@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 1661325394}
   - component: {fileID: 1661325393}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: TextController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

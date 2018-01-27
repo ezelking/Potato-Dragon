@@ -7,25 +7,28 @@ using UnityEngine.UI;
 public class TextBehaviourScript : MonoBehaviour
 {
 	public GameObject textBox;
-
 	public Text theText;
 	public TextAsset textFile;
 
 	public string[] textLines;
-
 	public int currentLine;
 	public int endAtLine;
+
+	private float TextTimer;
 
 	public PlayerController player;
 	
 	// Function for mouseclicks
 	private void Start()
 	{
+		TextTimer = 0f;
 		Init();
 	}
 
 	private void Init()
 	{
+		textBox.SetActive(true);
+		
 		if (textFile != null)
 		{
 			textLines = (textFile.text.Split('\n'));
@@ -35,28 +38,31 @@ public class TextBehaviourScript : MonoBehaviour
 		{
 			endAtLine = textLines.Length - 1;
 		}
+		
+		NextLine();
 	}
 
 	private void Update()
 	{
 		theText.text = textLines[currentLine];
 
-		if (Input.GetMouseButtonDown(0) && !textBox.activeSelf && currentLine < endAtLine)
+		if (Input.GetMouseButtonDown(0) && !textBox.activeSelf && currentLine < endAtLine && textFile != null)
 		{
-			Debug.Log("poep");
-			if (textFile == null) return;
-			textBox.SetActive(true);
 			Init();
-		} else if (Input.GetKeyDown(KeyCode.Return) && currentLine < endAtLine)
+		}
+
+		TextTimer -= Time.deltaTime;
+	}
+
+	private void NextLine()
+	{
+		currentLine++;
+		if (currentLine < endAtLine)
 		{
-			currentLine++;
-		} else if (Input.GetKeyDown(KeyCode.Return) && currentLine >= endAtLine)
-		{
-			textBox.SetActive(false);
-		} else if (Input.GetMouseButtonDown(0) && currentLine < endAtLine)
-		{
-			currentLine++;
-		} else if (Input.GetMouseButtonDown(0) && currentLine >= endAtLine)
+			TextTimer = textLines[currentLine].Length * 0.25f + 1;
+			Invoke("NextLine", TextTimer);
+		}
+		else
 		{
 			textBox.SetActive(false);
 		}
