@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4034665869997248}
   - component: {fileID: 212059446887549296}
   - component: {fileID: 114790312051995436}
-  - component: {fileID: 60759320112218498}
   - component: {fileID: 114925104788908664}
+  - component: {fileID: 61997263239159876}
   m_Layer: 0
   m_Name: Clickable Character Template
   m_TagString: Untagged
@@ -38,13 +38,13 @@ Transform:
   m_GameObject: {fileID: 1563355348160154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.082775116, y: 1, z: -2.81}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60759320112218498
-PolygonCollider2D:
+--- !u!61 &61997263239159876
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -65,16 +65,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.07, y: 0.04}
-      - {x: -0.07, y: -0.04}
-      - {x: -0.04, y: -0.07}
-      - {x: 0.04, y: -0.07}
-      - {x: 0.07, y: -0.04}
-      - {x: 0.07, y: 0.04}
-      - {x: 0.04, y: 0.07}
-      - {x: -0.04, y: 0.07}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!114 &114790312051995436
 MonoBehaviour:
   m_ObjectHideFlags: 1

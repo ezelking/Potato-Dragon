@@ -8,9 +8,10 @@ public class TextBehaviourScript : MonoBehaviour
 {
 	public GameObject textBox;
 	public Text theText;
-	public TextAsset textFile;
+	public List<TextAsset> suspiciousTextFiles;
+    public List<TextAsset> normalTextFiles;
 
-	public string[] textLines;
+    public string[] textLines;
 	public int currentLine;
 	public int endAtLine;
 
@@ -22,12 +23,18 @@ public class TextBehaviourScript : MonoBehaviour
 	private void Start()
 	{
 		TextTimer = 0f;
-		Init();
+		//Init();
 	}
 
-	private void Init()
+	public void ShowText(bool target)
 	{
-		textBox.SetActive(true);
+        TextAsset textFile;
+        if (target)
+            textFile = suspiciousTextFiles[Random.Range(0, suspiciousTextFiles.Count)];
+        else
+            textFile = normalTextFiles[Random.Range(0, normalTextFiles.Count)];
+
+        textBox.SetActive(true);
 		
 		if (textFile != null)
 		{
@@ -44,27 +51,28 @@ public class TextBehaviourScript : MonoBehaviour
 
 	private void Update()
 	{
-		theText.text = textLines[currentLine];
 
-		if (Input.GetMouseButtonDown(0) && !textBox.activeSelf && currentLine < endAtLine && textFile != null)
-		{
-			Init();
-		}
+
+		//if (Input.GetMouseButtonDown(0) && !textBox.activeSelf && currentLine < endAtLine && textFile != null)
+		//{
+			//Init();
+		//}
 
 		TextTimer -= Time.deltaTime;
 	}
 
 	private void NextLine()
 	{
-		currentLine++;
-		if (currentLine < endAtLine)
+		if (currentLine <= endAtLine)
 		{
 			TextTimer = textLines[currentLine].Length * 0.25f + 1;
 			Invoke("NextLine", TextTimer);
-		}
+            theText.text = textLines[currentLine];
+            currentLine++;
+        }
 		else
 		{
 			textBox.SetActive(false);
-		}
-	}
+        }
+    }
 }

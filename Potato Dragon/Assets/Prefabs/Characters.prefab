@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4891796690125476}
   - component: {fileID: 114419245239489330}
   - component: {fileID: 114274180751091080}
+  - component: {fileID: 114587191549520238}
   m_Layer: 0
   m_Name: Characters
   m_TagString: Untagged
@@ -63,10 +64,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da1058dc65d19cd40afca17f2ae6f66a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charactersToSpawn: 5
+  charactersToSpawn: 1
   characterTemplate: {fileID: 1563355348160154, guid: 207ac2f9cb8895b4a9f91a6f1abe97fc,
     type: 2}
   sprites:
   - {fileID: 21300000, guid: 44b70b996435eb04bb183d7d962f4ba0, type: 3}
   - {fileID: 21300000, guid: 3ebe93c06be11244c994dd4d8e655324, type: 3}
   - {fileID: 21300000, guid: 24a4444f38300bc4cad8d93466189cff, type: 3}
+--- !u!114 &114587191549520238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248018974282076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384c1411b17952748823837a73f462ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBox: {fileID: 0}
+  theText: {fileID: 0}
+  suspiciousTextFiles:
+  - {fileID: 4900000, guid: a7693891419b6ab4aa81b686b460afe9, type: 3}
+  - {fileID: 4900000, guid: a7693891419b6ab4aa81b686b460afe9, type: 3}
+  normalTextFiles:
+  - {fileID: 4900000, guid: a7693891419b6ab4aa81b686b460afe9, type: 3}
+  - {fileID: 4900000, guid: a7693891419b6ab4aa81b686b460afe9, type: 3}
+  textLines: []
+  currentLine: 0
+  endAtLine: 0
