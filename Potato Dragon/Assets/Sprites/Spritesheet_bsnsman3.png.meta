@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c05ba8d8c442fe344a1b84a8e96dc991
-timeCreated: 1517064028
+timeCreated: 1517078627
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -87,11 +87,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 118
-        width: 126
-        height: 394
+        y: 123
+        width: 123
+        height: 389
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -100,12 +100,12 @@ TextureImporter:
       name: Spritesheet_bsnsman3_1
       rect:
         serializedVersion: 2
-        x: 143
-        y: 122
-        width: 98
-        height: 390
+        x: 152
+        y: 125
+        width: 83
+        height: 387
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -114,10 +114,10 @@ TextureImporter:
       name: Spritesheet_bsnsman3_2
       rect:
         serializedVersion: 2
-        x: 248
-        y: 120
-        width: 112
-        height: 392
+        x: 259
+        y: 125
+        width: 83
+        height: 387
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -1,12 +1,9 @@
 fileFormatVersion: 2
-guid: 89af648213abbde4aaaf0389aa9a27d7
-timeCreated: 1517078600
+guid: 14d80d3227b45214cb13e7a85c6fdd1e
+timeCreated: 1517077675
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Spritesheet_bsnsman1_0
-    21300002: Spritesheet_bsnsman1_1
-    21300004: Spritesheet_bsnsman1_2
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -34,7 +31,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -43,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -81,49 +78,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Spritesheet_bsnsman1_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 123
-        width: 123
-        height: 389
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Spritesheet_bsnsman1_1
-      rect:
-        serializedVersion: 2
-        x: 152
-        y: 124
-        width: 83
-        height: 388
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Spritesheet_bsnsman1_2
-      rect:
-        serializedVersion: 2
-        x: 259
-        y: 124
-        width: 83
-        height: 387
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
     physicsShape: []
   spritePackingTag: 
