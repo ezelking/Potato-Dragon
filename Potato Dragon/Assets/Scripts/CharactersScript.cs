@@ -15,7 +15,7 @@ public class CharactersScript : MonoBehaviour {
         for (int i = 0; i < charactersToSpawn; i++) {
             GameObject spawnedCharacter = Instantiate(characterTemplate, transform);
             spawnedCharacter.GetComponent<SpriteRenderer>().sprite = (Sprite)sprites[Random.Range(0,sprites.Length)];
-            spawnedCharacter.transform.position = new Vector3(1, 2, 1) * i;
+            spawnedCharacter.transform.position = new Vector3(1, 1, 0) * i + new Vector3(0,0,-5);
             CharacterScript newCharacter = spawnedCharacter.GetComponent<CharacterScript>();
             spawnedCharacters.Add(newCharacter);
             newCharacter.SetFlight(GetComponent<FlightsScript>().ChooseFlight());
