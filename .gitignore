@@ -32,3 +32,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Potato Dragon/Assets/Plugins/
+Potato Dragon/Assets/Plugins.meta
+Potato Dragon/.idea/
