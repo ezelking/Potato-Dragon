@@ -361,6 +361,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1664098717766862, guid: ddf3220405fe34c4cb9ebcecf2012c98, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddf3220405fe34c4cb9ebcecf2012c98, type: 2}
   m_IsPrefabParent: 0
@@ -584,6 +588,11 @@ Prefab:
       propertyPath: theText
       value: 
       objectReference: {fileID: 1429535463}
+    - target: {fileID: 114419245239489330, guid: f3b1bb2bd051d3d4483f708288bb5b49,
+        type: 2}
+      propertyPath: charactersToSpawn
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3b1bb2bd051d3d4483f708288bb5b49, type: 2}
   m_IsPrefabParent: 0
