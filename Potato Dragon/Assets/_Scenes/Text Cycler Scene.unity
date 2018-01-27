@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -484,6 +484,41 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 224627419027911334, guid: ddf3220405fe34c4cb9ebcecf2012c98,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 894
+      objectReference: {fileID: 0}
+    - target: {fileID: 224627419027911334, guid: ddf3220405fe34c4cb9ebcecf2012c98,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224627419027911334, guid: ddf3220405fe34c4cb9ebcecf2012c98,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224627419027911334, guid: ddf3220405fe34c4cb9ebcecf2012c98,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 224627419027911334, guid: ddf3220405fe34c4cb9ebcecf2012c98,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -16.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224627419027911334, guid: ddf3220405fe34c4cb9ebcecf2012c98,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224627419027911334, guid: ddf3220405fe34c4cb9ebcecf2012c98,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddf3220405fe34c4cb9ebcecf2012c98, type: 2}
   m_IsPrefabParent: 0
@@ -666,8 +701,13 @@ Prefab:
     m_Modifications:
     - target: {fileID: 114587191549520238, guid: f3b1bb2bd051d3d4483f708288bb5b49,
         type: 2}
+      propertyPath: normalTextFiles.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114587191549520238, guid: f3b1bb2bd051d3d4483f708288bb5b49,
+        type: 2}
       propertyPath: suspiciousTextFiles.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4891796690125476, guid: f3b1bb2bd051d3d4483f708288bb5b49, type: 2}
       propertyPath: m_LocalPosition.x
@@ -774,6 +814,41 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 0397515f7a5f5b8449f8be17a6afc849,
         type: 3}
+    - target: {fileID: 114587191549520238, guid: f3b1bb2bd051d3d4483f708288bb5b49,
+        type: 2}
+      propertyPath: suspiciousTextFiles.Array.data[1]
+      value: 
+      objectReference: {fileID: 4900000, guid: 2738e9bea6559744c9bf94359a44c85a, type: 3}
+    - target: {fileID: 114587191549520238, guid: f3b1bb2bd051d3d4483f708288bb5b49,
+        type: 2}
+      propertyPath: suspiciousTextFiles.Array.data[0]
+      value: 
+      objectReference: {fileID: 4900000, guid: 2738e9bea6559744c9bf94359a44c85a, type: 3}
+    - target: {fileID: 114587191549520238, guid: f3b1bb2bd051d3d4483f708288bb5b49,
+        type: 2}
+      propertyPath: normalTextFiles.Array.data[2]
+      value: 
+      objectReference: {fileID: 4900000, guid: 859a3991b4aa67d44840e5e7fa06e4b8, type: 3}
+    - target: {fileID: 114587191549520238, guid: f3b1bb2bd051d3d4483f708288bb5b49,
+        type: 2}
+      propertyPath: normalTextFiles.Array.data[3]
+      value: 
+      objectReference: {fileID: 4900000, guid: 2ba0737bed877304590c87b2d60d826c, type: 3}
+    - target: {fileID: 114587191549520238, guid: f3b1bb2bd051d3d4483f708288bb5b49,
+        type: 2}
+      propertyPath: normalTextFiles.Array.data[0]
+      value: 
+      objectReference: {fileID: 4900000, guid: b6e4f720ef758c64dad8bfe8b431857e, type: 3}
+    - target: {fileID: 114587191549520238, guid: f3b1bb2bd051d3d4483f708288bb5b49,
+        type: 2}
+      propertyPath: normalTextFiles.Array.data[1]
+      value: 
+      objectReference: {fileID: 4900000, guid: 191de6d6941ff494492dd57bc5993e4f, type: 3}
+    - target: {fileID: 114587191549520238, guid: f3b1bb2bd051d3d4483f708288bb5b49,
+        type: 2}
+      propertyPath: normalTextFiles.Array.data[4]
+      value: 
+      objectReference: {fileID: 4900000, guid: 43a5e96e117e7eb41b986e2b08d150dd, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3b1bb2bd051d3d4483f708288bb5b49, type: 2}
   m_IsPrefabParent: 0

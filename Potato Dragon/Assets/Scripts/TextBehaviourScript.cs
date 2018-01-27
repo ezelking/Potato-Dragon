@@ -68,7 +68,7 @@ public class TextBehaviourScript : MonoBehaviour
 	{
 		if (selectedPerson.currentline <= endAtLine)
 		{
-			TextTimer = textLines[selectedPerson.currentline].Length * 0.25f + 1;
+			TextTimer = 5;//textLines[selectedPerson.currentline].Length * 0.25f + 1;
 			Invoke("NextLine", TextTimer);
             theText.text = textLines[selectedPerson.currentline];
             selectedPerson.currentline++;
