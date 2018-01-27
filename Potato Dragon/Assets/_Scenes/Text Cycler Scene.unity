@@ -683,6 +683,24 @@ Prefab:
       propertyPath: suspiciousTextFiles.Array.data[9]
       value: 
       objectReference: {fileID: 4900000, guid: a7693891419b6ab4aa81b686b460afe9, type: 3}
+    - target: {fileID: 114419245239489330, guid: f3b1bb2bd051d3d4483f708288bb5b49,
+        type: 2}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 89af648213abbde4aaaf0389aa9a27d7,
+        type: 3}
+    - target: {fileID: 114419245239489330, guid: f3b1bb2bd051d3d4483f708288bb5b49,
+        type: 2}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: c05ba8d8c442fe344a1b84a8e96dc991,
+        type: 3}
+    - target: {fileID: 114419245239489330, guid: f3b1bb2bd051d3d4483f708288bb5b49,
+        type: 2}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0397515f7a5f5b8449f8be17a6afc849,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3b1bb2bd051d3d4483f708288bb5b49, type: 2}
   m_IsPrefabParent: 0
