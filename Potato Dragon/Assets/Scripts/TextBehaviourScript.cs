@@ -104,6 +104,8 @@ public class TextBehaviourScript : MonoBehaviour
             str += strComplete[i++];
             theText.text = str;
             yield return new WaitForSeconds(0.1f);
+            if (i % 2 == 0)
+                GetComponent<AudioSource>().Play();
         }
     }
 }
