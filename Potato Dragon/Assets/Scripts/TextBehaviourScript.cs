@@ -153,6 +153,7 @@ public class TextBehaviourScript : MonoBehaviour
         textLines = null;
         textBox.SetActive(false);
         characterImage.gameObject.SetActive(false);
+        phoneImage.gameObject.SetActive(false);
         currentLine = 0;
         CancelInvoke("NextLine");
         StopAllCoroutines();
