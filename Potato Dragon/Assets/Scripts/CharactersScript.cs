@@ -33,9 +33,11 @@ public class CharactersScript : MonoBehaviour {
         return !(position.x > -3f && position.x < -1.4f && position.y < 3.1f && position.y > -0.64f) && !(position.x > -0.55f && position.x < 1.05f && position.y < 3.1f && position.y > -0.64f) && !(position.x > 1.8f && position.x < 3.4 && position.y < 3.1f && position.y > -0.64f);
     }
 
-    public Sprite GetSprite(CharacterScript character)
+    public Sprite GetSprite(CharacterScript character, bool baseSprite)
     {
         int spriteBaseIndex = (int)System.Math.Floor((double)(System.Array.IndexOf(sprites, character.GetComponent<SpriteRenderer>().sprite) / 3))*3;
+        if (baseSprite)
+            return sprites[spriteBaseIndex];
         switch (character.dir)
         {
             case CharacterScript.Direction.Left:

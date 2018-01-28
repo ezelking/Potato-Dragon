@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class TextBehaviourScript : MonoBehaviour
 {
 	public GameObject textBox;
+    public Image characterImage;
 	public Text theText;
 	public List<TextAsset> suspiciousTextFiles;
     public List<TextAsset> normalTextFiles;
@@ -37,16 +38,15 @@ public class TextBehaviourScript : MonoBehaviour
                 selectedPerson.script = normalTextFiles[Random.Range(0, normalTextFiles.Count)];
 
         textBox.SetActive(true);
+        characterImage.gameObject.SetActive(true);
+
+        characterImage.sprite = GetComponent<CharactersScript>().GetSprite(selectedPerson,true);
 
         if (selectedPerson.script != null)
         {
             textLines = (selectedPerson.script.text.Split('\n'));
         }
-
-        if (endAtLine == 0)
-        {
             endAtLine = textLines.Length - 1;
-        }
 
         NextLine();
 
@@ -68,20 +68,42 @@ public class TextBehaviourScript : MonoBehaviour
 	{
 		if (selectedPerson.currentline <= endAtLine)
 		{
-			TextTimer = textLines[selectedPerson.currentline].Length * 0.25f + 1;
+			TextTimer = textLines[selectedPerson.currentline].Length * 0.1f + 1;
 			Invoke("NextLine", TextTimer);
-            theText.text = textLines[selectedPerson.currentline];
+            StartTextDisplay();
             selectedPerson.currentline++;
         }
 		else
 		{
-			textBox.SetActive(false);
+            theText.text = "This phone conversation has ended, press X to accuse this person or press Z to return.";
+            //textBox.SetActive(false);
         }
     }
 
     private void Reset() {
         textLines = null;
         textBox.SetActive(false);
+        characterImage.gameObject.SetActive(false);
         CancelInvoke("NextLine");
+        StopAllCoroutines();
+    }
+
+    private string str;
+    void StartTextDisplay()
+    {
+        StartCoroutine(AnimateText(textLines[selectedPerson.currentline]));
+    }
+
+
+    IEnumerator AnimateText(string strComplete)
+    {
+        int i = 0;
+        str = "";
+        while (i < strComplete.Length)
+        {
+            str += strComplete[i++];
+            theText.text = str;
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }

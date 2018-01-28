@@ -76,6 +76,7 @@ public class CharacterScript : MonoBehaviour {
                 transform.position += new Vector3(0, -1, 0) * Time.deltaTime;
                 break;
         }
+        GetComponent<SpriteRenderer>().sortingOrder = Mathf.FloorToInt(1000 + (transform.position.y * -10));
     }
 
     void BoardPlane()
@@ -216,6 +217,6 @@ public class CharacterScript : MonoBehaviour {
 
     void ChangeSprite()
     {
-        GetComponent<SpriteRenderer>().sprite = GetComponentInParent<CharactersScript>().GetSprite(this);
+        GetComponent<SpriteRenderer>().sprite = GetComponentInParent<CharactersScript>().GetSprite(this,false);
     }
 }
