@@ -1,14 +1,14 @@
-"Hey, I'm at the gate waiting for boarding"
->"Good, everything is going as planned"
+"Hey, I'm at the gate waiting for boarding."
+>"Good, everything is going as planned."
 
-"Plenty of seats too"
->"Pick one away from the people hmm"
+"Plenty of seats too."
+>"Pick one away from the people hmm."
 
-"Oh, why that"
->"It gives you a better overview on what is happening around you"
+"Oh, why that."
+>"It gives you a better overview on what is happening around you."
 
-"That's too bad because I'm already seated"
->"Keep your things close then"
+"That's too bad, because I'm already seated."
+>"Keep your things close, then."
 
-"I'll, I'm not gonna get robbed here"
->"Just to make sure"
+"I'll, I'm not gonna get robbed here."
+>"Just to make sure."

@@ -174,7 +174,7 @@ public class TextBehaviourScript : MonoBehaviour
         {
             str += strComplete[i++];
             theText.text = str;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
                 GetComponent<AudioSource>().Play();
         }
     }

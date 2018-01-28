@@ -10,7 +10,7 @@ public class FlightsScript : MonoBehaviour {
     // Use this for initialization
     void Start() {
         foreach (int i in flights)
-            departureTimes.Add(i, Random.Range(60f, 85f));        
+            departureTimes.Add(i, Random.Range(180f, 210f));        
 	}
 
     // Update is called once per frame
