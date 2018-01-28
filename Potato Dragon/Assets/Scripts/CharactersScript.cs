@@ -36,7 +36,7 @@ public class CharactersScript : MonoBehaviour {
 
     public Sprite GetSprite(CharacterScript character, bool baseSprite)
     {
-        int spriteBaseIndex = (int)System.Math.Floor((double)(System.Array.IndexOf(sprites, character.GetComponent<SpriteRenderer>().sprite) / 3))*3;
+        int spriteBaseIndex = (int)System.Math.Floor((double)(System.Array.IndexOf(sprites, character.GetComponent<SpriteRenderer>().sprite) / 4))*4;
         if (baseSprite)
             return sprites[spriteBaseIndex];
         switch (character.dir)
@@ -45,8 +45,11 @@ public class CharactersScript : MonoBehaviour {
                 return sprites[spriteBaseIndex + 2];
             case CharacterScript.Direction.Right:
                 return sprites[spriteBaseIndex + 1];
+            case CharacterScript.Direction.Up:
+                return sprites[spriteBaseIndex + 3];
             default:
                 return sprites[spriteBaseIndex];
+
         }
     }
 }
