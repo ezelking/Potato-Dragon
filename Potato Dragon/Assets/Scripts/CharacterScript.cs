@@ -6,7 +6,7 @@ public class CharacterScript : MonoBehaviour {
     public bool target = false;
 
     public int flightNumber = 0;
-    bool boarding = false;
+    public bool boarding = false;
 
     public bool suspected = false;
 
@@ -14,25 +14,37 @@ public class CharacterScript : MonoBehaviour {
 
     public int currentline = 0;
 
-    Vector3 targetPosition = Vector3.zero;
+    public Vector3 targetPosition = Vector3.zero;
+
+    Vector3 gateA, gateB, gateC, gateD;
 
     private void Start()
     {
         GetTargetPosition();
+        gateA = new Vector3(-4.8f, -1.2f, -4);
+        gateB = new Vector3(-4.8f, 3.2f, -4);
+        gateC = new Vector3(4.8f, -1.2f, -4);
+        gateD = new Vector3(4.8f, 3.2f, -4);
     }
 
     // Update is called once per frame
     void Update () {
-        if (GetComponentInParent<FlightsScript>().GetDepartureTime(flightNumber) <= 0)
-            boarding = true;
+        if (!boarding && GetComponentInParent<FlightsScript>().GetDepartureTime(flightNumber) <= 0)
+            BoardPlane();
         if (suspected && !target )//|| boarding)
             Debug.Log("You Lose");
         else if (target && suspected)
             Debug.Log("You Win");
         Movement();
-
+        
         if (Vector3.Distance(transform.position, targetPosition) < 1.5f)
-            GetTargetPosition();
+            if (!boarding)
+            {
+                GetTargetPosition();
+            } else
+            {
+                this.enabled = false;
+            }
 	}
 
     //Assign a flight to this character
@@ -62,6 +74,26 @@ public class CharacterScript : MonoBehaviour {
                 break;
             case Direction.Down:
                 transform.position += new Vector3(0, -1, 0) * Time.deltaTime;
+                break;
+        }
+    }
+
+    void BoardPlane()
+    {
+        boarding = true;
+        switch (Random.Range(0, 3))
+        {
+            case 0:
+                targetPosition = gateA;
+                break;
+            case 1:
+                targetPosition = gateB;
+                break;
+            case 2:
+                targetPosition = gateC;
+                break;
+            case 3:
+                targetPosition = gateD;
                 break;
         }
     }

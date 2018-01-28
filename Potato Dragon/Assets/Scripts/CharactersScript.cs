@@ -36,7 +36,6 @@ public class CharactersScript : MonoBehaviour {
     public Sprite GetSprite(CharacterScript character)
     {
         int spriteBaseIndex = (int)System.Math.Floor((double)(System.Array.IndexOf(sprites, character.GetComponent<SpriteRenderer>().sprite) / 3))*3;
-        Debug.Log(character.GetComponent<SpriteRenderer>().sprite+":"+spriteBaseIndex); 
         switch (character.dir)
         {
             case CharacterScript.Direction.Left:
