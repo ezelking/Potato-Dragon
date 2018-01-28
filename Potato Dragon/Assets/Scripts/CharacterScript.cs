@@ -31,10 +31,10 @@ public class CharacterScript : MonoBehaviour {
     void Update () {
         if (!boarding && GetComponentInParent<FlightsScript>().GetDepartureTime(flightNumber) <= 0)
             BoardPlane();
-        if (suspected && !target )//|| boarding)
-            Debug.Log("You Lose");
+        if (suspected && !target)//|| boarding)
+            GameObject.Find("GameManager").GetComponent<GameManagerScript>().Lose();
         else if (target && suspected)
-            Debug.Log("You Win");
+            GameObject.Find("GameManager").GetComponent<GameManagerScript>().Win();
         Movement();
         
         if (Vector3.Distance(transform.position, targetPosition) < 1.5f)
@@ -43,7 +43,12 @@ public class CharacterScript : MonoBehaviour {
                 GetTargetPosition();
             } else
             {
-                this.enabled = false;
+                if (target)
+                    GameObject.Find("GameManager").GetComponent<GameManagerScript>().Lose();
+                if (GameObject.Find("GameManager").GetComponent<TextBehaviourScript>().selectedPerson == this)
+                    GameObject.Find("GameManager").GetComponent<TextBehaviourScript>().Reset();
+                this.gameObject.SetActive(false);
+                
             }
 	}
 
@@ -54,8 +59,8 @@ public class CharacterScript : MonoBehaviour {
 
     void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0) && GetComponentInParent<TextBehaviourScript>().textBox.activeSelf == false)
-                GetComponentInParent<TextBehaviourScript>().ShowText(this);
+        if (Input.GetMouseButtonDown(0) && GameObject.Find("GameManager").GetComponent<TextBehaviourScript>().textBox.activeSelf == false)
+            GameObject.Find("GameManager").GetComponent<TextBehaviourScript>().ShowCharacterText(this);
     }
 
     void Movement()

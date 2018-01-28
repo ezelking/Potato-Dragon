@@ -11,13 +11,18 @@ public class TextBehaviourScript : MonoBehaviour
 	public Text theText;
 	public List<TextAsset> suspiciousTextFiles;
     public List<TextAsset> normalTextFiles;
+    public List<TextAsset> briefingTextFiles;
+    public List<TextAsset> winTextFiles;
+    public List<TextAsset> loseTextFiles;
+
 
     public string[] textLines;
 	public int endAtLine;
+	int currentLine;
 
-	private float TextTimer;
+    private float TextTimer;
 
-    CharacterScript selectedPerson;
+    public CharacterScript selectedPerson;
 
 	public PlayerController player;
 	
@@ -26,7 +31,7 @@ public class TextBehaviourScript : MonoBehaviour
 		TextTimer = 0f;
 	}
 
-	public void ShowText(CharacterScript target)
+	public void ShowCharacterText(CharacterScript target)
     {
         selectedPerson = target;
         
@@ -39,50 +44,116 @@ public class TextBehaviourScript : MonoBehaviour
         textBox.SetActive(true);
         characterImage.gameObject.SetActive(true);
 
-        characterImage.sprite = GetComponent<CharactersScript>().GetSprite(selectedPerson,true);
+        characterImage.sprite = GetComponent<GameManagerScript>().level.GetComponent<CharactersScript>().GetSprite(selectedPerson,true);
 
         if (selectedPerson.script != null)
         {
             textLines = (selectedPerson.script.text.Split('\n'));
         }
             endAtLine = textLines.Length - 1;
-
+        currentLine = selectedPerson.currentline;
         NextLine();
 
 
     }
 
+    public void ShowBriefingText()
+    {
+        
+                //selectedPerson.script = briefingTextFiles[Random.Range(0, briefingTextFiles.Count)];
+
+        textBox.SetActive(true);
+        
+            textLines = (briefingTextFiles[Random.Range(0, briefingTextFiles.Count)].text.Split('\n'));
+        endAtLine = textLines.Length - 1;
+
+        NextLine();
+    }
+    public void ShowWinningText()
+    {
+        theText.alignment = TextAnchor.MiddleLeft;
+
+        //selectedPerson.script = briefingTextFiles[Random.Range(0, briefingTextFiles.Count)];
+
+        textBox.SetActive(true);
+
+        textLines = (loseTextFiles[Random.Range(0, loseTextFiles.Count)].text.Split('\n'));
+        endAtLine = textLines.Length - 1;
+
+        NextLine();
+    }
+    public void ShowLosingText()
+    {
+
+        theText.alignment = TextAnchor.MiddleLeft;
+        //selectedPerson.script = briefingTextFiles[Random.Range(0, briefingTextFiles.Count)];
+
+        textBox.SetActive(true);
+
+        textLines = (winTextFiles[Random.Range(0, winTextFiles.Count)].text.Split('\n'));
+        endAtLine = textLines.Length - 1;
+
+        NextLine();
+    }
+
     private void Update()
-	{
-        if (Input.GetKeyDown(KeyCode.Z))
-            Reset();
+    {
+        if (GameObject.Find("GameManager").GetComponent<GameManagerScript>().state == GameManagerScript.GameState.Playing)
+        {
+            if (Input.GetKeyDown(KeyCode.Z))
+                Reset();
 
-        if (Input.GetKey(KeyCode.X))
-            selectedPerson.suspected = true;
+            if (Input.GetKey(KeyCode.X))
+                selectedPerson.suspected = true;
 
-		TextTimer -= Time.deltaTime;
+            TextTimer -= Time.deltaTime;
+        }
 	}
 
 	private void NextLine()
 	{
-		if (selectedPerson.currentline <= endAtLine)
+            if (currentLine <= endAtLine)
 		{
-			TextTimer = textLines[selectedPerson.currentline].Length * 0.1f + 1;
-			Invoke("NextLine", TextTimer);
+            if (textLines[currentLine][0] == '>')
+            {
+                if (theText.alignment == TextAnchor.MiddleRight)
+                    theText.alignment = TextAnchor.MiddleLeft;
+                else if (theText.alignment == TextAnchor.MiddleLeft)
+                    theText.alignment = TextAnchor.MiddleRight;
+                textLines[currentLine] = textLines[currentLine].Substring(1, textLines[currentLine].Length-1);
+               }
+            TextTimer = textLines[currentLine].Length * 0.1f + 2;
+            
+            Invoke("NextLine", TextTimer);
             StartTextDisplay();
-            selectedPerson.currentline++;
+            if (GameObject.Find("GameManager").GetComponent<GameManagerScript>().state == GameManagerScript.GameState.Playing)
+                selectedPerson.currentline++;
+            currentLine++;
         }
 		else
 		{
-            theText.text = "This phone conversation has ended, press X to accuse this person or press Z to return.";
+            if (GameObject.Find("GameManager").GetComponent<GameManagerScript>().state == GameManagerScript.GameState.Playing)
+                theText.text = "This phone conversation has ended, press X to accuse this person or press Z to return.";
+            else if (GameObject.Find("GameManager").GetComponent<GameManagerScript>().state == GameManagerScript.GameState.Briefing)
+            {
+                currentLine = 0;
+                GameObject.Find("GameManager").GetComponent<GameManagerScript>().StartLevel();
+                textBox.SetActive(false);
+            }
+            else
+            {
+                currentLine = -1;
+                GameObject.Find("GameManager").GetComponent<GameManagerScript>().Replay();
+            }
             //textBox.SetActive(false);
         }
     }
 
-    private void Reset() {
+    public void Reset() {
         textLines = null;
         textBox.SetActive(false);
         characterImage.gameObject.SetActive(false);
+        currentLine = 0;
         CancelInvoke("NextLine");
         StopAllCoroutines();
     }
@@ -90,7 +161,7 @@ public class TextBehaviourScript : MonoBehaviour
     private string str;
     void StartTextDisplay()
     {
-        StartCoroutine(AnimateText(textLines[selectedPerson.currentline]));
+        StartCoroutine(AnimateText(textLines[currentLine]));
     }
 
 
@@ -103,6 +174,7 @@ public class TextBehaviourScript : MonoBehaviour
             str += strComplete[i++];
             theText.text = str;
             yield return new WaitForSeconds(0.1f);
+                GetComponent<AudioSource>().Play();
         }
     }
 }
