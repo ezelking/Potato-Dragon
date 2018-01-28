@@ -79,7 +79,7 @@ public class TextBehaviourScript : MonoBehaviour
 
         textBox.SetActive(true);
 
-        textLines = (loseTextFiles[Random.Range(0, loseTextFiles.Count)].text.Split('\n'));
+        textLines = (winTextFiles[Random.Range(0, winTextFiles.Count)].text.Split('\n'));
         endAtLine = textLines.Length - 1;
 
         NextLine();
@@ -92,7 +92,7 @@ public class TextBehaviourScript : MonoBehaviour
 
         textBox.SetActive(true);
 
-        textLines = (winTextFiles[Random.Range(0, winTextFiles.Count)].text.Split('\n'));
+        textLines = (loseTextFiles[Random.Range(0, loseTextFiles.Count)].text.Split('\n'));
         endAtLine = textLines.Length - 1;
 
         NextLine();
@@ -118,12 +118,10 @@ public class TextBehaviourScript : MonoBehaviour
 		{
             if (textLines[currentLine][0] == '>')
             {
-                if (theText.alignment == TextAnchor.MiddleRight)
-                    theText.alignment = TextAnchor.MiddleLeft;
-                else if (theText.alignment == TextAnchor.MiddleLeft)
+                
                     theText.alignment = TextAnchor.MiddleRight;
                 textLines[currentLine] = textLines[currentLine].Substring(1, textLines[currentLine].Length-1);
-               }
+               } else { theText.alignment = TextAnchor.MiddleLeft; }
             TextTimer = textLines[currentLine].Length * 0.1f + 2;
             
             Invoke("NextLine", TextTimer);
