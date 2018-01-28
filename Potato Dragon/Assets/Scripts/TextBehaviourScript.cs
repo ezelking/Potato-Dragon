@@ -8,6 +8,7 @@ public class TextBehaviourScript : MonoBehaviour
 {
 	public GameObject textBox;
     public Image characterImage;
+    public Image phoneImage;
 	public Text theText;
 	public List<TextAsset> suspiciousTextFiles;
     public List<TextAsset> normalTextFiles;
@@ -43,6 +44,7 @@ public class TextBehaviourScript : MonoBehaviour
 
         textBox.SetActive(true);
         characterImage.gameObject.SetActive(true);
+        phoneImage.gameObject.SetActive(true);
 
         characterImage.sprite = GetComponent<GameManagerScript>().level.GetComponent<CharactersScript>().GetSprite(selectedPerson,true);
 

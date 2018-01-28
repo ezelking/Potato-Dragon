@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -151,7 +151,7 @@ RectTransform:
   m_LocalScale: {x: 0.61143094, y: 0.6114308, z: 0.6114308}
   m_Children: []
   m_Father: {fileID: 80193729}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -191,6 +191,74 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 529020373}
+--- !u!1 &606422162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 606422163}
+  - component: {fileID: 606422165}
+  - component: {fileID: 606422164}
+  m_Layer: 5
+  m_Name: Phone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &606422163
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 606422162}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_Children: []
+  m_Father: {fileID: 80193729}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 260, y: 0}
+  m_SizeDelta: {x: 123, y: 289}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &606422164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 606422162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 513903093f8e992409b291809c730bb6, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &606422165
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 606422162}
 --- !u!1 &632163746
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,7 +690,7 @@ Prefab:
     - target: {fileID: 224905681111729136, guid: ddf3220405fe34c4cb9ebcecf2012c98,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1074810059417962, guid: ddf3220405fe34c4cb9ebcecf2012c98, type: 2}
       propertyPath: m_IsActive
@@ -752,7 +820,7 @@ RectTransform:
   m_LocalScale: {x: 1.1584597, y: 1.1584599, z: 1.1584599}
   m_Children: []
   m_Father: {fileID: 80193729}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -903,6 +971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 216244599}
   characterImage: {fileID: 0}
+  phoneImage: {fileID: 606422164}
   theText: {fileID: 1429535463}
   suspiciousTextFiles: []
   normalTextFiles: []
@@ -911,6 +980,7 @@ MonoBehaviour:
   loseTextFiles: []
   textLines: []
   endAtLine: 0
+  selectedPerson: {fileID: 0}
 --- !u!23 &1661325394
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1021,6 +1091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 216244599}
   characterImage: {fileID: 1355670811}
+  phoneImage: {fileID: 606422164}
   theText: {fileID: 1429535463}
   suspiciousTextFiles:
   - {fileID: 4900000, guid: 2738e9bea6559744c9bf94359a44c85a, type: 3}
@@ -1038,6 +1109,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: a7693891419b6ab4aa81b686b460afe9, type: 3}
   textLines: []
   endAtLine: 0
+  selectedPerson: {fileID: 0}
 --- !u!114 &1787406964
 MonoBehaviour:
   m_ObjectHideFlags: 0
