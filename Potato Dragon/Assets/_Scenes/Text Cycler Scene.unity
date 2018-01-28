@@ -1097,16 +1097,20 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 2738e9bea6559744c9bf94359a44c85a, type: 3}
   normalTextFiles:
   - {fileID: 4900000, guid: b6e4f720ef758c64dad8bfe8b431857e, type: 3}
-  - {fileID: 4900000, guid: 191de6d6941ff494492dd57bc5993e4f, type: 3}
-  - {fileID: 4900000, guid: 859a3991b4aa67d44840e5e7fa06e4b8, type: 3}
-  - {fileID: 4900000, guid: 2ba0737bed877304590c87b2d60d826c, type: 3}
+  - {fileID: 4900000, guid: 508347f53803f08499b59e3ba110926d, type: 3}
+  - {fileID: 4900000, guid: 05b9836a2c08f1047af8c4123806abe7, type: 3}
+  - {fileID: 4900000, guid: 305d801a7f1addb448c8962165a50597, type: 3}
+  - {fileID: 4900000, guid: 3ea0ff18bdf496045a06388a50754205, type: 3}
+  - {fileID: 4900000, guid: 6b0c099437a88cd43a60bdcd6189a464, type: 3}
+  - {fileID: 4900000, guid: ba213a7f3926aa846bb661dffe349f04, type: 3}
   - {fileID: 4900000, guid: 43a5e96e117e7eb41b986e2b08d150dd, type: 3}
+  - {fileID: 4900000, guid: 84316b7ae762a684692ad930d6542ebe, type: 3}
   briefingTextFiles:
-  - {fileID: 4900000, guid: a7693891419b6ab4aa81b686b460afe9, type: 3}
+  - {fileID: 4900000, guid: c258c62cd8094a3459814f83425cc2de, type: 3}
   winTextFiles:
-  - {fileID: 4900000, guid: a7693891419b6ab4aa81b686b460afe9, type: 3}
+  - {fileID: 4900000, guid: 3d8d3c63a7d90294586a0d8d0e9b9f75, type: 3}
   loseTextFiles:
-  - {fileID: 4900000, guid: a7693891419b6ab4aa81b686b460afe9, type: 3}
+  - {fileID: 4900000, guid: 73d7fd2b68d96f041adf8d15362722a4, type: 3}
   textLines: []
   endAtLine: 0
   selectedPerson: {fileID: 0}
