@@ -21,7 +21,6 @@ public class TextBehaviourScript : MonoBehaviour
 
 	public PlayerController player;
 	
-	// Function for mouseclicks
 	private void Start()
 	{
 		TextTimer = 0f;
