@@ -1,12 +1,13 @@
 fileFormatVersion: 2
 guid: c05ba8d8c442fe344a1b84a8e96dc991
-timeCreated: 1517078627
+timeCreated: 1517144178
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Spritesheet_bsnsman3_0
     21300002: Spritesheet_bsnsman3_1
     21300004: Spritesheet_bsnsman3_2
+    21300006: Spritesheet_bsnsman3_3
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -87,7 +88,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 123
+        y: 122
         width: 123
         height: 389
       alignment: 0
@@ -101,7 +102,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 152
-        y: 125
+        y: 124
         width: 83
         height: 387
       alignment: 0
@@ -115,9 +116,23 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 259
-        y: 125
+        y: 124
         width: 83
         height: 387
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spritesheet_bsnsman3_3
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 126
+        width: 115
+        height: 386
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

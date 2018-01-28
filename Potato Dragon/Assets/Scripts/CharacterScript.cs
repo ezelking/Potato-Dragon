@@ -33,22 +33,32 @@ public class CharacterScript : MonoBehaviour {
             BoardPlane();
         if (suspected && !target)//|| boarding)
             GameObject.Find("GameManager").GetComponent<GameManagerScript>().Lose();
-        else if (target && suspected)
-            GameObject.Find("GameManager").GetComponent<GameManagerScript>().Win();
+        //else if (target && suspected)
+            //GameObject.Find("GameManager").GetComponent<GameManagerScript>().Win();
         Movement();
         
         if (Vector3.Distance(transform.position, targetPosition) < 1.5f)
             if (!boarding)
             {
-                GetTargetPosition();
+                GetTargetPosition(); if (target && suspected)
+                {
+                    boarding = true;
+                }
             } else
             {
-                if (target)
-                    GameObject.Find("GameManager").GetComponent<GameManagerScript>().Lose();
-                if (GameObject.Find("GameManager").GetComponent<TextBehaviourScript>().selectedPerson == this)
-                    GameObject.Find("GameManager").GetComponent<TextBehaviourScript>().Reset();
-                this.gameObject.SetActive(false);
                 
+
+                if (GameObject.Find("GameManager").GetComponent<TextBehaviourScript>().selectedPerson == this)
+                {
+                    GameObject.Find("GameManager").GetComponent<TextBehaviourScript>().Reset();
+                }
+                if (target && suspected)
+                {
+                    GameObject.Find("Ninja").GetComponent<NinjaScript>().ChooseTarget(transform);
+                }
+                else
+                    this.gameObject.SetActive(false);
+
             }
 	}
 
