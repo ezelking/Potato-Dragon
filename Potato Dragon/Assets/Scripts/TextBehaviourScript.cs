@@ -122,7 +122,7 @@ public class TextBehaviourScript : MonoBehaviour
                     theText.alignment = TextAnchor.MiddleRight;
                 textLines[currentLine] = textLines[currentLine].Substring(1, textLines[currentLine].Length-1);
                } else { theText.alignment = TextAnchor.MiddleLeft; }
-            TextTimer = textLines[currentLine].Length * 0.1f + 2;
+            TextTimer = textLines[currentLine].Length * 0.05f + 2;
             
             Invoke("NextLine", TextTimer);
             StartTextDisplay();
